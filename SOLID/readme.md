@@ -28,6 +28,15 @@ So according to SRP, <b><ins>one class should take one responsibility</ins></b> 
 
 Now take the same <b>‘ReportGeneration’</b> class as an example of this principle. Can you guess what is the problem with the below class!!
 
+![Image1](./images/OCP1.png)
+
 Brilliant!! Yes you are right, <b>too much ‘If’ clauses</b> are there and if we want to introduce another new report type like ‘Excel’, then you need to write another ‘if’. </br></br><b> This class should be open for extension but closed for modification.</b> But how to do that!!
 
+![Image1](./images/OCP2.png)
+
 So if you want to introduce a new report type, then just <b>__inherit__</b> from <b>IReportGeneration.</b></br></br> So <b>IReportGeneration</b> is <b><ins>open for extension</ins></b> but <b><ins>closed for modification.</ins></b>
+
+<h2>2.3 Liskov substitution principle (LSP)</h2>
+
+<p style="text-indent: 20px;">This principle is simple but very important to understand. <b><ins>Child class should not break parent class’s type definition and behavior.</ins></b>
+</br></br>Now what is the meaning of this!! Ok let me take the same <b>employee</b> example to make you understand this principle.</br></br>Check the below picture. Employee is a parent class and Casual and Contractual employee are the child classes, inhering from <b>employee</b> class.</p>
