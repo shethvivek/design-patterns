@@ -44,6 +44,49 @@ So if you want to introduce a new report type, then just <b>__inherit__</b> from
 <img src="./images/LSP0.png" alt="Description" width="300" height="200">
 </br>
 Now see the below code :
+</br></br>
+<img src="./images/LSP1.png">
+Up to this is fine right?
+</br></br>Now, check the below code and it will <b>violate the LSP principle.</b>
+
+<img src="./images/LSP2.png">
+Now I guess you got the problem.</br></br>Yes right, for <b>contractual employee,</b> you will get not implemented exception and that is violating LSP.</br></br>Then what is the solution?</br></br><b>Break the whole thing in 2 different interfaces,</b></br> 1. IProject</br> 2. IEmployee </br> and implement according to employee type.
+</br></br>
+<img src="./images/LSP3.png">
+
+<h2>2.4 Interface segregation principle (ISP)</h2>
+
+<p style="text-indent: 2px;">This principle states that <b>any client should not be forced to use an interface which is irrelevant to it.</b></br></br>Now what does this mean, suppose there is one database for storing data of all types of employees (i.e. Permanent, non-permanent), </br></br> what will be the best approach for our interface?</p>
+<img src="./images/ISP1.png">
+And all types of employee class will inherit this interface for saving data. This is fine right? Now suppose that company one day told to you that they want to read only data of permanent employees. What you will do, just add one method to this interface?</br></br>
+<img src="./images/ISP2.png">
+But now we are breaking something. We are forcing <b><ins>non-permanent employee</b></ins> class to show their details from database.</br></br> So, the solution is to <b><ins>give this responsibility to another interface.</b></ins>
 </br>
-![Image1](./images/LSP1.png)
-</br>
+<img src="./images/ISP3.png">
+And <b>non-permanent</b> employee will implement <b>only IAddOperation</b> and <b>permanent employee</b> will implement <b>both the interface.</b>
+
+<h2>2.5 Dependency inversion principle (DIP)</h2>
+<p style="text-indent: 2px;">This principle tells <b><ins>you not to write any tightly coupled code because that is a nightmare to maintain when the application is growing bigger and bigger.</ins></b> If a class depends on another class, then we need to change one class if something changes in that dependent class. </br></br><b><ins>We should always try to write loosely coupled class.</ins></b></p>
+
+<p style="text-indent: 2px;">Suppose there is one notification system after saving some details into database.</p>
+
+<img src="./images/DI1.png">
+
+Now <b>Notification class</b> totally depends on <b>Email class,</b> because it only sends one type of notification.</br></br> If we want to introduce any other like SMS then? We need to <b>change</b> the notification system also. And this is called <b>tightly coupled.</b>
+</br></br>What can we do to make it loosely coupled?
+</br>Ok, check the following implementation.</br></br>
+<img src="./images/DI2.png">
+
+
+Still Notification class depends on Email class. Now, we can use <b><ins>dependency injection</ins></b> so that we can make it loosely coupled. </br></br>There are 3 types to DI, Constructor injection, Property injection and method injection.
+
+<b>Constructor Injection</b></br>
+<img src="./images/DI3.png">
+
+<b>Property Injection</b></br>
+<img src="./images/DI4.png">
+
+<b>Method Injection</b></br>
+<img src="./images/DI5.png">
+
+</br></br>SOLID principle will help us to write <b>loosely coupled code</b> which is <b>highly maintainable</b> and less error prone.
