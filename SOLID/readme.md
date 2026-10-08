@@ -39,4 +39,11 @@ So if you want to introduce a new report type, then just <b>__inherit__</b> from
 <h2>2.3 Liskov substitution principle (LSP)</h2>
 
 <p style="text-indent: 20px;">This principle is simple but very important to understand. <b><ins>Child class should not break parent class’s type definition and behavior.</ins></b>
-</br></br>Now what is the meaning of this!! Ok let me take the same <b>employee</b> example to make you understand this principle.</br></br>Check the below picture. Employee is a parent class and Casual and Contractual employee are the child classes, inhering from <b>employee</b> class.</p>
+</br></br>Now what is the meaning of this!! Ok let me take the same <b>employee</b> example to make you understand this principle.</br></br>Check the below picture. <ins>Employee is a parent class</ins> and <b>Casual</b> and <b>Contractual</b> employee are the <ins>child classes</ins>, inhering from <b>employee</b> class.</p>
+
+<img src="./images/LSP0.png" alt="Description" width="300" height="200">
+</br>
+Now see the below code :
+</br>
+![Image1](./images/LSP1.png)
+</br>
